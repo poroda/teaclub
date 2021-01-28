@@ -1,0 +1,19 @@
+version: '3'
+services:
+  flyway:
+    image: flyway/flyway:6.3.1
+    command: -configFiles=/flyway/conf/flyway.config -locations=filesystem:/flyway/sql -connectRetries=60 migrate
+    volumes:
+      - ${PWD}/sql_versions:/flyway/sql
+      - ${PWD}/docker-flyway.config:/flyway/conf/flyway.config
+    depends_on:
+      - teaclub
+  teaclub:
+    image: postgres:12.2-alpine
+    restart: always
+    ports:
+    - "5432:5432"
+    environment:
+    - POSTGRES_USER=teaclub-user
+    - POSTGRES_PASSWORD=teaclub
+    - POSTGRES_DB=teaclub
