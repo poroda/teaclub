@@ -7,4 +7,8 @@ CREATE TABLE tea (
 INSERT INTO tea(name, variety)
 VALUES ('Lohikäärmeen perä', 'musta'),
        ('Oolong', 'valkoinen'),
-       ('C-battery', 'punainen');
+       ('C-battery', 'punainen'),
+       ('Lady Grey', 'musta'),
+       ('Milky Oolong', 'valkoinen'),
+       ('Nippon Green', 'vihreä');
+
